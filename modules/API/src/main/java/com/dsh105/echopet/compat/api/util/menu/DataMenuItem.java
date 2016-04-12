@@ -98,13 +98,13 @@ public enum DataMenuItem {
     BACK(DataMenuType.OTHER, null, Material.BOOK, 1, (short) 0, "Back", "Return to the main menu."),
     CLOSE(DataMenuType.OTHER, null, Material.BOOK, 1, (short) 0, "Close", "Close the Pet Menu");
 
-    private DataMenuType type;
-    private PetData dataLink;
-    private Material mat;
-    private String name;
-    private List<String> lore;
-    private int amount;
-    private short data;
+    private final DataMenuType type;
+    private final PetData dataLink;
+    private final Material mat;
+    private final String name;
+    private final List<String> lore;
+    private final int amount;
+    private final short data;
 
     DataMenuItem(DataMenuType type, PetData dataLink, Material mat, int amount, short data, String name, String... lore) {
         this.type = type;
@@ -113,7 +113,7 @@ public enum DataMenuItem {
         this.amount = amount;
         this.data = data;
         this.name = name;
-        List<String> list = new ArrayList<String>();
+        List<String> list = new ArrayList<>();
         for (String s : lore) {
             s = ChatColor.GOLD + s;
             list.add(s);

@@ -32,11 +32,7 @@ public class PlayerUtil {
         Object playerConnection = getPlayerConnection(player);
         try {
             sendPacket.invoke(playerConnection, packet);
-        } catch (IllegalAccessException e) {
-            EchoPet.LOG.warning("Failed to retrieve the PlayerConnection of: " + player.getName());
-        } catch (IllegalArgumentException e) {
-            EchoPet.LOG.warning("Failed to retrieve the PlayerConnection of: " + player.getName());
-        } catch (InvocationTargetException e) {
+        } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
             EchoPet.LOG.warning("Failed to retrieve the PlayerConnection of: " + player.getName());
         }
     }
@@ -45,13 +41,7 @@ public class PlayerUtil {
         Method getHandle = ReflectionUtil.getMethod(player.getClass(), "getHandle");
         try {
             return getHandle.invoke(player);
-        } catch (IllegalAccessException e) {
-            EchoPet.LOG.warning("Failed retrieve the NMS Player-Object of:" + player.getName());
-            return null;
-        } catch (IllegalArgumentException e) {
-            EchoPet.LOG.warning("Failed retrieve the NMS Player-Object of:" + player.getName());
-            return null;
-        } catch (InvocationTargetException e) {
+        } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
             EchoPet.LOG.warning("Failed retrieve the NMS Player-Object of:" + player.getName());
             return null;
         }

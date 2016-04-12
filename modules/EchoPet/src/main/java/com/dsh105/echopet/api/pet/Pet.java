@@ -44,7 +44,7 @@ public abstract class Pet implements IPet {
     private Object ownerIdentification;
     private Pet rider;
     private String name;
-    private ArrayList<PetData> petData = new ArrayList<PetData>();
+    private ArrayList<PetData> petData = new ArrayList<>();
 
     private boolean isRider = false;
 

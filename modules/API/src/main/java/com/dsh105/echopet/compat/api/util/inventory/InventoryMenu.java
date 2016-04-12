@@ -34,7 +34,7 @@ public class InventoryMenu implements InventoryHolder, Listener {
 
     private int size;
     private String title;
-    private HashMap<Integer, MenuIcon> slots = new HashMap<Integer, MenuIcon>();
+    private HashMap<Integer, MenuIcon> slots = new HashMap<>();
 
     protected InventoryMenu(String title, int size) {
         EchoPet.getPlugin().getServer().getPluginManager().registerEvents(this, EchoPet.getPlugin());

@@ -114,8 +114,8 @@ public enum AdminHelpPage {
              ChatColor.YELLOW + "    - Give another Player the Pet Selector.",
              ChatColor.DARK_RED + "    - Permission: echopet.petadmin.selector");
 
-    private int id;
-    private String[] lines;
+    private final int id;
+    private final String[] lines;
 
     AdminHelpPage(int id, String... lines) {
         this.id = id;
@@ -136,33 +136,21 @@ public enum AdminHelpPage {
                 return hp.getLines();
             }
         }
-        return HelpPage.NONE.getLines();
+        return NONE.getLines();
     }
 
     public static boolean sendRelevantHelpMessage(CommandSender sender, String[] args) {
         if (args[0].equalsIgnoreCase("default")) {
             sender.sendMessage(ChatColor.RED + "------------ EchoPet Admin Help ------------");
-            for (String s : AdminHelpPage.DEFAULT.getLines()) {
-                sender.sendMessage(s);
-            }
+            sender.sendMessage(DEFAULT.getLines());
             return true;
-        } else if (args[0].equalsIgnoreCase("name")) {
+        } else if (args[0].equalsIgnoreCase("name") || args[0].equalsIgnoreCase("remove")) {
             sender.sendMessage(ChatColor.RED + "------------ EchoPet Admin Help ------------");
-            for (String s : AdminHelpPage.GENERAL.getLines()) {
-                sender.sendMessage(s);
-            }
+            sender.sendMessage(GENERAL.getLines());
             return true;
         } else if (args[0].equalsIgnoreCase("rider")) {
             sender.sendMessage(ChatColor.RED + "------------ EchoPet Admin Help ------------");
-            for (String s : AdminHelpPage.RIDER.getLines()) {
-                sender.sendMessage(s);
-            }
-            return true;
-        } else if (args[0].equalsIgnoreCase("remove")) {
-            sender.sendMessage(ChatColor.RED + "------------ EchoPet Admin Help ------------");
-            for (String s : AdminHelpPage.GENERAL.getLines()) {
-                sender.sendMessage(s);
-            }
+            sender.sendMessage(RIDER.getLines());
             return true;
         }
         return false;

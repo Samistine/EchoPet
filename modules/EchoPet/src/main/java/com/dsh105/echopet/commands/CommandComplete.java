@@ -31,7 +31,7 @@ public class CommandComplete implements TabCompleter {
 
     @Override
     public List<String> onTabComplete(CommandSender sender, Command cmd, String label, String[] args) {
-        List<String> list = new ArrayList<String>();
+        List<String> list = new ArrayList<>();
         String cmdString = EchoPet.getPlugin().getCommandString();
         if (cmd.getName().equalsIgnoreCase(cmdString)) {
             String[] completions;
@@ -70,7 +70,7 @@ public class CommandComplete implements TabCompleter {
             case 1:
                 return getCompletions(i);
             case 2:
-                ArrayList<String> list = new ArrayList<String>();
+                ArrayList<String> list = new ArrayList<>();
                 for (PetType pt : PetType.values()) {
                     if (argBefore.equalsIgnoreCase(pt.toString().toLowerCase())) {
                         list.add(pt.toString().toLowerCase());
@@ -89,7 +89,8 @@ public class CommandComplete implements TabCompleter {
                     list.add("remove");
                 }
                 return list.toArray(new String[list.size()]);
+            default:
+                return new String[0];
         }
-        return new String[0];
     }
 }

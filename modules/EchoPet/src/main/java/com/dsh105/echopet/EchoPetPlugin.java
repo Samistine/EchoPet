@@ -358,8 +358,8 @@ public class EchoPetPlugin extends JavaPlugin implements IEchoPetPlugin {
                 sender.sendMessage(ChatColor.GOLD + "Website: " + ChatColor.YELLOW + pdFile.getWebsite());
                 sender.sendMessage(ChatColor.GOLD + "Commands are registered at runtime to provide you with more dynamic control over the command labels.");
                 sender.sendMessage(ChatColor.GOLD + "" + ChatColor.UNDERLINE + "Command Registration:");
-                sender.sendMessage(ChatColor.GOLD + "Main: " + this.OPTIONS.getCommandString());
-                sender.sendMessage(ChatColor.GOLD + "Admin: " + this.OPTIONS.getCommandString() + "admin");
+                sender.sendMessage(ChatColor.GOLD + "Main: " + OPTIONS.getCommandString());
+                sender.sendMessage(ChatColor.GOLD + "Admin: " + OPTIONS.getCommandString() + "admin");
             } else {
                 Lang.sendTo(sender, Lang.NO_PERMISSION.toString().replace("%perm%", "echopet.petadmin"));
                 return true;

@@ -34,7 +34,7 @@ public class PetMenu {
     Inventory inv;
     private int size;
     private IPet pet;
-    private ArrayList<MenuOption> options = new ArrayList<MenuOption>();
+    private ArrayList<MenuOption> options = new ArrayList<>();
 
     public PetMenu(IPet pet, ArrayList<MenuOption> options, int size) {
         this.pet = pet;

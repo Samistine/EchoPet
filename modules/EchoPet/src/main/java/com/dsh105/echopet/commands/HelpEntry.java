@@ -74,10 +74,10 @@ public enum HelpEntry {
     }
 
     public PowerMessage getPowerMessage(CommandSender sender) {
-        ArrayList<String> description = new ArrayList<String>();
-        description.add(ChatColor.GOLD + "" + ChatColor.BOLD + "Usage for /" + EchoPet.getPlugin().getCommandString() + " " + this.getCommandArguments() + ":");
+        ArrayList<String> description_ = new ArrayList<>();
+        description_.add(ChatColor.GOLD + "" + ChatColor.BOLD + "Usage for /" + EchoPet.getPlugin().getCommandString() + " " + this.getCommandArguments() + ":");
         for (String s : this.getDescription()) {
-            description.add("• " + ChatColor.YELLOW + s);
+            description_.add("• " + ChatColor.YELLOW + s);
         }
         if (sender != null && this.canCheckPerm) {
             boolean hasPerm = false;
@@ -88,11 +88,11 @@ public enum HelpEntry {
                 }
             }
             if (hasPerm) {
-                description.add(hasPerm ? ChatColor.GREEN + "You may use this command" : ChatColor.RED + "You do not have permission to use this command");
+                description_.add(hasPerm ? ChatColor.GREEN + "You may use this command" : ChatColor.RED + "You do not have permission to use this command");
             }
         }
         String cmd = "/" + EchoPet.getPlugin().getCommandString() + " " + this.getCommandArguments();
-        return new PowerMessage(ChatColor.YELLOW + "• " + ChatColor.GOLD + cmd).tooltip(description.toArray(new String[0])).suggest(cmd);
+        return new PowerMessage(ChatColor.YELLOW + "• " + ChatColor.GOLD + cmd).tooltip(description_.toArray(new String[0])).suggest(cmd);
     }
 
     public PowerMessage getPowerMessage() {

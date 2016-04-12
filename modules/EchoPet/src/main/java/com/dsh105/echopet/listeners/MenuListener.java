@@ -138,7 +138,6 @@ public class MenuListener implements Listener {
 
                                     public OpenMenu(MenuItem mi) {
                                         this.mi = mi;
-                                        this.runTaskLater(EchoPet.getPlugin(), 1L);
                                     }
 
                                     @Override
@@ -149,7 +148,7 @@ public class MenuListener implements Listener {
 
                                 }
 
-                                new OpenMenu(mi);
+                                new OpenMenu(mi).runTaskLater(EchoPet.getPlugin(), 1L);
                             }
                             break;
                         }
@@ -177,9 +176,7 @@ public class MenuListener implements Listener {
                         }
                     }
                 }
-            } catch (IllegalArgumentException e) {
-                Logger.log(Logger.LogLevel.SEVERE, "Encountered severe error whilst handling InventoryClickEvent.", e, true);
-            } catch (IllegalStateException e) {
+            } catch (IllegalArgumentException | IllegalStateException e) {
                 Logger.log(Logger.LogLevel.SEVERE, "Encountered severe error whilst handling InventoryClickEvent.", e, true);
             }
         }

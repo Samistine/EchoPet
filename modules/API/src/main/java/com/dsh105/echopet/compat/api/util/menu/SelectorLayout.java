@@ -34,7 +34,7 @@ import java.util.List;
 
 public class SelectorLayout {
 
-    private static ArrayList<SelectorIcon> selectorLayout = new ArrayList<SelectorIcon>();
+    private static ArrayList<SelectorIcon> selectorLayout = new ArrayList<>();
     private static SelectorMenu selectorMenu;
 
     public static ItemStack getSelectorItem() {
@@ -44,12 +44,12 @@ public class SelectorLayout {
         int materialData = config.getInt("petSelector.item.materialData", 0);
         List<String> lore = config.config().getStringList("petSelector.item.lore");
         if (lore == null) {
-            lore = new ArrayList<String>();
+            lore = new ArrayList<>();
         }
         ItemStack i = new ItemStack(materialId, 1, (short) materialData);
         ItemMeta meta = i.getItemMeta();
         meta.setDisplayName(ChatColor.translateAlternateColorCodes('&', name));
-        ArrayList<String> loreList = new ArrayList<String>();
+        ArrayList<String> loreList = new ArrayList<>();
         if (lore.size() > 0) {
             for (String s : lore) {
                 loreList.add(ChatColor.translateAlternateColorCodes('&', s));
@@ -86,9 +86,9 @@ public class SelectorLayout {
             }
             List<String> lore = config.config().getStringList(s + ".slot-" + i + ".lore");
             if (lore == null) {
-                lore = new ArrayList<String>();
+                lore = new ArrayList<>();
             }
-            ArrayList<String> loreList = new ArrayList<String>();
+            ArrayList<String> loreList = new ArrayList<>();
             if (lore.size() > 0) {
                 for (String part : lore) {
                     loreList.add(ChatColor.translateAlternateColorCodes('&', part));
@@ -105,7 +105,7 @@ public class SelectorLayout {
     }
 
     public static HashMap<Integer, SelectorIcon> getLoadedLayout() {
-        HashMap<Integer, SelectorIcon> layout = new HashMap<Integer, SelectorIcon>();
+        HashMap<Integer, SelectorIcon> layout = new HashMap<>();
         for (SelectorIcon icon : selectorLayout) {
             if (!ConfigOptions.instance.getConfig().getBoolean("petSelector.showDisabledPets", true) && icon.getPetType() != null) {
                 if (!ConfigOptions.instance.allowPetType(icon.getPetType())) {
@@ -118,7 +118,7 @@ public class SelectorLayout {
     }
 
     public static ArrayList<SelectorIcon> getDefaultLayout() {
-        ArrayList<SelectorIcon> layout = new ArrayList<SelectorIcon>();
+        ArrayList<SelectorIcon> layout = new ArrayList<>();
         int count = 0;
         for (PetItem item : PetItem.values()) {
             layout.add(new SelectorIcon(count, item.getCommand(), item.petType, item.getMat().getId(), item.getData(), item.getName()));

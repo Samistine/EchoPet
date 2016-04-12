@@ -131,7 +131,7 @@ public class PetUtil {
             }
         }
 
-        ArrayList<PetData> petDataList = new ArrayList<PetData>();
+        ArrayList<PetData> petDataList = new ArrayList<>();
         PetType petType = null;
         if (GeneralUtil.isEnumType(PetType.class, petString)) {
             petType = PetType.valueOf(petString.toUpperCase());
@@ -219,7 +219,7 @@ public class PetUtil {
     }
 
     public static ArrayList<String> generatePetInfo(IPet pt) {
-        ArrayList<String> info = new ArrayList<String>();
+        ArrayList<String> info = new ArrayList<>();
         info.add(ChatColor.GOLD + " - Pet Type: " + ChatColor.YELLOW + StringUtil.capitalise(pt.getPetType().toString()));
         info.add(ChatColor.GOLD + " - Name: " + ChatColor.YELLOW + pt.getPetName());
         if (pt instanceof IAgeablePet) {
@@ -242,7 +242,7 @@ public class PetUtil {
     }
 
     public static ArrayList<String> generatePetDataInfo(IPet pt) {
-        ArrayList<String> info = new ArrayList<String>();
+        ArrayList<String> info = new ArrayList<>();
         if (pt.getPetType() == PetType.BLAZE) {
             info.add(ChatColor.GOLD + " - On Fire: " + ChatColor.YELLOW + ((IBlazePet) pt).isOnFire());
         }
@@ -256,20 +256,17 @@ public class PetUtil {
         }
 
         if (pt.getPetType() == PetType.SHEEP) {
-            String color = "";
-            color = ((ISheepPet) pt).getColor() == null ? "Default" : StringUtil.capitalise(((ISheepPet) pt).getColor().toString().replace("_", " "));
+            String color = ((ISheepPet) pt).getColor() == null ? "Default" : StringUtil.capitalise(((ISheepPet) pt).getColor().toString().replace("_", " "));
             info.add(ChatColor.GOLD + " - Wool Colour: " + ChatColor.YELLOW + color);
         }
 
         if (pt.getPetType() == PetType.VILLAGER) {
-            String prof = "";
-            prof = ((IVillagerPet) pt).getProfession() == null ? "Farmer" : StringUtil.capitalise(((IVillagerPet) pt).getProfession().toString().replace("_", " "));
+            String prof = ((IVillagerPet) pt).getProfession() == null ? "Farmer" : StringUtil.capitalise(((IVillagerPet) pt).getProfession().toString().replace("_", " "));
             info.add(ChatColor.GOLD + " - Profession: " + ChatColor.YELLOW + prof);
         }
 
         if (pt.getPetType() == PetType.OCELOT) {
-            String oType = "";
-            oType = ((IOcelotPet) pt).getCatType() == null ? "Default" : StringUtil.capitalise(((IOcelotPet) pt).getCatType().toString().replace("_", " "));
+            String oType = ((IOcelotPet) pt).getCatType() == null ? "Default" : StringUtil.capitalise(((IOcelotPet) pt).getCatType().toString().replace("_", " "));
             info.add(ChatColor.GOLD + " - Ocelot Type: " + ChatColor.YELLOW + oType);
         }
 
@@ -278,8 +275,7 @@ public class PetUtil {
         }
 
         if (pt.getPetType() == PetType.SLIME) {
-            String size = "";
-            size = StringUtil.capitalise(((ISlimePet) pt).getSize() + "");
+            String size = StringUtil.capitalise(((ISlimePet) pt).getSize() + "");
             String s = " (Small)";
             if (size.equals("2")) s = " (Medium)";
             if (size.equals("4")) s = " (Large)";
@@ -287,8 +283,7 @@ public class PetUtil {
         }
 
         if (pt.getPetType() == PetType.MAGMACUBE) {
-            String size = "";
-            size = StringUtil.capitalise(((IMagmaCubePet) pt).getSize() + "");
+            String size = StringUtil.capitalise(((IMagmaCubePet) pt).getSize() + "");
             String s = " (Small)";
             if (size.equals("2")) s = " (Medium)";
             if (size.equals("4")) s = " (Large)";
@@ -298,8 +293,7 @@ public class PetUtil {
         if (pt.getPetType() == PetType.WOLF) {
             info.add(ChatColor.GOLD + " - Tamed (Wolf): " + ChatColor.YELLOW + ((IWolfPet) pt).isTamed());
             info.add(ChatColor.GOLD + " - Angry (Wolf): " + ChatColor.YELLOW + ((IWolfPet) pt).isAngry());
-            String color = "";
-            color = ((IWolfPet) pt).getCollarColor() == null ? "Red" : StringUtil.capitalise(((IWolfPet) pt).getCollarColor().toString().replace("_", " "));
+            String color = ((IWolfPet) pt).getCollarColor() == null ? "Red" : StringUtil.capitalise(((IWolfPet) pt).getCollarColor().toString().replace("_", " "));
             info.add(ChatColor.GOLD + " - Collar Colour: " + ChatColor.YELLOW + color);
         }
 
@@ -329,7 +323,7 @@ public class PetUtil {
     }
 
     public static ArrayList<String> getPetList(CommandSender sender, boolean petAdmin) {
-        ArrayList<String> list = new ArrayList<String>();
+        ArrayList<String> list = new ArrayList<>();
         String admin = petAdmin ? "admin" : "";
         for (PetType pt : PetType.values()) {
             ChatColor color1 = ChatColor.GREEN;

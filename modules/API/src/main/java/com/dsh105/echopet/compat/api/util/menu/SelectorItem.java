@@ -34,11 +34,11 @@ public enum SelectorItem {
     MENU(Material.WORKBENCH, 1, (short) 0, ChatColor.YELLOW + "Open PetMenu", "menu"),
     CLOSE(Material.BOOK, 1, (short) 0, ChatColor.YELLOW + "Close", "select");
 
-    private String command;
-    private Material mat;
-    private int amount;
-    private short data;
-    private String name;
+    private final String command;
+    private final Material mat;
+    private final int amount;
+    private final short data;
+    private final String name;
 
     SelectorItem(Material mat, int amount, short data, String name, String command) {
         this.command = "pet " + command;

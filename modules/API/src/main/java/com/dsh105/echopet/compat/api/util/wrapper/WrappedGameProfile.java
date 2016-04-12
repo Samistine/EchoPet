@@ -43,13 +43,7 @@ public class WrappedGameProfile extends AbstractWrapper {
             } else if (ident instanceof String) {
                 super.setHandle(gameProfileClass.getConstructor(String.class, String.class).newInstance(ident, name));
             }
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
-        } catch (NoSuchMethodException e) {
+        } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
             e.printStackTrace();
         }
     }

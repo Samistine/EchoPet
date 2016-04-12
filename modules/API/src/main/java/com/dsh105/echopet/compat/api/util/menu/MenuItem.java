@@ -55,19 +55,19 @@ public enum MenuItem {
     RIDE("CARROT_STICK", 1, (short) 0, DataMenuType.BOOLEAN, "Ride Pet", "Control your pet."),
     HAT("IRON_HELMET", 1, (short) 0, DataMenuType.BOOLEAN, "Hat Pet", "Wear your pet on your head.");
 
-    private WrappedMaterial wrappedMaterial;
-    private String name;
-    private int amount;
-    private List<String> lore;
-    private short data;
-    private DataMenuType menuType;
+    private final WrappedMaterial wrappedMaterial;
+    private final String name;
+    private final int amount;
+    private final List<String> lore;
+    private final short data;
+    private final DataMenuType menuType;
 
     MenuItem(String materialName, int amount, short data, DataMenuType menuType, String name, String... lore) {
         this.wrappedMaterial = new WrappedMaterial(materialName);
         this.name = name;
         this.amount = amount;
         this.data = data;
-        List<String> list = new ArrayList<String>();
+        List<String> list = new ArrayList<>();
         list.addAll(Arrays.asList(lore));
         this.lore = list;
         this.menuType = menuType;

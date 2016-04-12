@@ -49,11 +49,11 @@ public class PetCommand implements CommandExecutor {
     }
 
     private Paginator<PowerMessage> getHelp(CommandSender sender) {
-        ArrayList<PowerMessage> helpMessages = new ArrayList<PowerMessage>();
+        ArrayList<PowerMessage> helpMessages = new ArrayList<>();
         for (HelpEntry he : HelpEntry.values()) {
             helpMessages.add(he.getPowerMessage(sender));
         }
-        return new Paginator<PowerMessage>(helpMessages, 5);
+        return new Paginator<>(helpMessages, 5);
     }
 
     @Override

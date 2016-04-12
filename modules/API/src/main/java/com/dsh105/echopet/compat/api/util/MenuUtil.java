@@ -26,7 +26,7 @@ import java.util.ArrayList;
 public class MenuUtil {
 
     public static ArrayList<MenuOption> createOptionList(PetType pt) {
-        ArrayList<MenuOption> options = new ArrayList<MenuOption>();
+        ArrayList<MenuOption> options = new ArrayList<>();
         int i = 0;
         options.add(new MenuOption(i++, MenuItem.HAT));
         options.add(new MenuOption(i++, MenuItem.RIDE));
