@@ -25,7 +25,7 @@ import java.util.UUID;
 
 public class WrappedGameProfile extends AbstractWrapper {
 
-    private WrappedGameProfile(Object ident, String name) {
+    public WrappedGameProfile(Object ident, String name) {
         Class<?> gameProfileClass = null;
         try {
             gameProfileClass = Class.forName("net.minecraft.util.com.mojang.authlib.GameProfile");
@@ -46,14 +46,6 @@ public class WrappedGameProfile extends AbstractWrapper {
         } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
             e.printStackTrace();
         }
-    }
-
-    public WrappedGameProfile(UUID uuid, String name) {
-        this((Object) uuid, name);
-    }
-
-    public WrappedGameProfile(String ident, String name) {
-        this((Object) ident, name);
     }
 
     public static WrappedGameProfile getNewProfile(WrappedGameProfile old, String newName) {
